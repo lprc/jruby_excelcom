@@ -107,4 +107,12 @@ describe 'Worksheet' do
     actual.must_equal color
   end
 
+  it '#comment' do
+    range = 'A1'
+    comment = "test"
+    $ws.comment = {:range => range, :comment => comment}
+    actual = $ws.comment range
+    actual.must_equal comment
+  end
+
 end

@@ -131,6 +131,26 @@ class Worksheet
   end
   alias :getBorderColor :border_color
 
+  # sets comment of cells in range
+  # +range+:: range
+  # +comment+:: comment text
+  def set_comment(range, comment)
+    @ws.setComment(range, comment)
+  end
+  alias :setComment :set_comment
 
+  # sets comment of cells in range
+  # +hash+:: must contain +:range+ and +:comment+
+  def comment=(hash)
+    raise ArgumentError, 'cannot set border color, argument is not a hash' unless hash.is_a? Hash
+    raise ArgumentError, 'cannot set border color, hash does not contain :range or :comment key' if hash[:range].nil? or hash[:comment].nil?
+    set_comment hash[:range], hash[:comment]
+  end
+
+  # gets the comment of cells in range. Throws a +NullpointerException+ if range contains multiple comments
+  def comment(range)
+    @ws.getComment(range)
+  end
+  alias :getComment :comment
 
 end
