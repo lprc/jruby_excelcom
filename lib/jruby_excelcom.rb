@@ -3,7 +3,7 @@
 require 'java'
 require_relative 'jars/jna-4.4.0.jar'
 require_relative 'jars/jna-platform-4.4.0.jar'
-require_relative 'jars/excelcom-0.0.5.jar'
+require_relative 'jars/excelcom-0.0.6.jar'
 require_relative 'jruby_excelcom/excel_connection'
 require_relative 'jruby_excelcom/workbook'
 require_relative 'jruby_excelcom/worksheet'

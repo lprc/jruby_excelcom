@@ -41,6 +41,16 @@ describe 'Worksheet' do
     actual[2][1].must_equal content[2][1]
     actual[3][0].must_equal content[3][0]
     actual[3][1].must_equal content[3][1]
+
+    actual = $ws.content(JavaExcelcom::Util.boundsToRange(1, 0, 4, 3))
+    actual[0][0].must_equal content[0][0]
+    actual[0][1].must_equal content[0][1]
+    actual[1][0].must_equal content[1][0]
+    actual[1][1].must_equal content[1][1]
+    actual[2][0].must_equal content[2][0]
+    actual[2][1].must_equal content[2][1]
+    actual[3][0].must_equal content[3][0]
+    actual[3][1].must_equal content[3][1]
   end
 
   it '#content=' do
