@@ -78,4 +78,20 @@ class ExcelConnection
   alias :openWorkbook :workbook
   alias :open_workbook :workbook
 
+  # creates a new workbook. If block is given, workbook will be saved and closed at end
+  def new_workbook(file)
+    if file.is_a? String
+      wb = Workbook.new(@con.newWorkbook(java.io.File.new(file)))
+    else
+      wb = Workbook.new(@con.newWorkbook(java.io.File.new(file.path)))
+    end
+    if block_given?
+      yield(wb)
+      wb.close true
+    else
+      wb
+    end
+  end
+  alias :add_workbook :new_workbook
+
 end

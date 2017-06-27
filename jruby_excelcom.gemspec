@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'jruby_excelcom'
-  s.version       = '0.0.2'
+  s.version       = '0.0.3'
   s.date          = Time.now.strftime('%Y-%m-%d')
   s.platform      = 'java'
   s.summary       = "Excel spreadsheet modification using COM"
@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.authors       = ["lprc"]
   s.files         = Dir.glob("{doc,lib,test}/**/*") + ['LICENSE', __FILE__]
   s.require_paths = ['lib']
-  s.homepage      = 'http://rubygems.org/gems/jruby_excelcom'
+  s.homepage      = 'https://github.com/lprc/jruby_excelcom'
   s.license       = 'Apache-2.0'
 end

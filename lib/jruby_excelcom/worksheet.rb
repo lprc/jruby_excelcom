@@ -26,7 +26,7 @@ class Worksheet
   # returns the content in range as a matrix, a vector or a single value, depending on +range+'s dimensions
   # +range+:: range with content to get, default value is _UsedRange_
   def content(range = 'UsedRange')
-    c = @ws.getContent(range).to_a.each{ |row| row.to_a }
+    c = @ws.getContent(range).to_a.map!{ |row| row.to_a }
     columns = c.size
     rows = columns > 0 ? c[0].size : 0
     if columns == 1 and rows == 1 # range is one cell
