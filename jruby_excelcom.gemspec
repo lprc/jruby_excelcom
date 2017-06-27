@@ -10,4 +10,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage      = 'https://github.com/lprc/jruby_excelcom'
   s.license       = 'Apache-2.0'
+  s.add_development_dependency 'minitest', '~> 4.7'
+  s.add_development_dependency 'minitest-reporters', '~> 0.14'
 end

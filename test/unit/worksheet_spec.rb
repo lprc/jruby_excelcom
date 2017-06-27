@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'time'
-require_relative '../../lib/jruby_excelcom'
+require 'jruby_excelcom'
 
 describe 'Worksheet' do
 
@@ -11,9 +11,9 @@ describe 'Worksheet' do
     e.display_alerts = false
     e
   end
-  $wb ||= $con.workbook("#{File.dirname(File.absolute_path(__FILE__))}/../resources/test.xlsx")
+  $wb ||= $con.workbook("#{File.dirname(File.expand_path(__FILE__))}/../resources/test.xlsx")
 
-  Minitest.after_run {
+  Minitest::Unit.after_tests {
     $wb.close unless $wb.nil?; $wb = nil
     $con.quit unless $con.nil?; $con = nil
   }

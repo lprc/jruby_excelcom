@@ -1,11 +1,11 @@
 # encoding: utf-8
 
 require 'minitest/autorun'
-require_relative '../../lib/jruby_excelcom'
+require 'jruby_excelcom'
 
 describe 'Workbook' do
 
-  Minitest.after_run {
+  Minitest::Unit.after_tests {
     $wb.close unless $wb.nil?; $wb = nil
     $con.quit unless $con.nil?; $con = nil
     File.delete($temp_file_path) if not $temp_file_path.nil? and File.exists?($temp_file_path)
@@ -16,7 +16,7 @@ describe 'Workbook' do
     e.display_alerts = false
     e
   end
-  $wb ||= $con.workbook("#{File.dirname(File.absolute_path(__FILE__))}/../resources/test.xlsx")
+  $wb ||= $con.workbook("#{File.dirname(File.expand_path(__FILE__))}/../resources/test.xlsx")
   $temp_file_path ||= "#{Dir::tmpdir}/test.xlsx"
 
   it '#name' do

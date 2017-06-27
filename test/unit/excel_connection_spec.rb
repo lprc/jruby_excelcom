@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'tmpdir'
-require_relative '../../lib/jruby_excelcom'
+require 'jruby_excelcom'
 
 describe 'ExcelConnection' do
 
@@ -11,9 +11,9 @@ describe 'ExcelConnection' do
     e.display_alerts = false
     e
   end
-  $wb ||= $con.workbook("#{File.dirname(File.absolute_path(__FILE__))}/../resources/test.xlsx")
+  $wb ||= $con.workbook("#{File.dirname(File.expand_path(__FILE__))}/../resources/test.xlsx")
 
-  Minitest.after_run {
+  Minitest::Unit.after_tests {
     $wb.close unless $wb.nil?; $wb = nil
     $con.quit unless $con.nil?; $con = nil
   }
@@ -31,7 +31,7 @@ describe 'ExcelConnection' do
 
   it '#workbook' do
     $wb.wont_be_nil
-    $con.workbook("#{File.dirname(File.absolute_path(__FILE__))}/../resources/test2.xlsx") { |wb|
+    $con.workbook("#{File.dirname(File.expand_path(__FILE__))}/../resources/test2.xlsx") { |wb|
       wb.name.is_a? String
     }
   end
