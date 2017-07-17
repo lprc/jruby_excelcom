@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'jruby_excelcom'
-  s.version       = '0.0.4'
+  s.version       = '0.0.5'
   s.date          = Time.now.strftime('%Y-%m-%d')
   s.platform      = 'java'
   s.summary       = "Excel spreadsheet modification using COM"

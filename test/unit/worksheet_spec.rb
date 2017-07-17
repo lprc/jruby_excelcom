@@ -81,6 +81,20 @@ describe 'Worksheet' do
     $ws.content = {:range => range, :content => content}
     actual = $ws.content range
     actual.must_equal content
+
+    # check matrix with different column lengths
+    range = 'C5:D6'
+    content = [[235, 7911], [13]]
+    $ws.content = {:range => range, :content => content}
+    actual = $ws.content range
+    actual.must_equal [[235, 7911], [13, nil]]
+
+    # check matrix with nil values
+    range = 'E5:F6'
+    content = [[235, 7911], [13, nil]]
+    $ws.content = {:range => range, :content => content}
+    actual = $ws.content range
+    actual.must_equal [[235, 7911], [13, nil]]
   end
 
   it '#fill_color' do
